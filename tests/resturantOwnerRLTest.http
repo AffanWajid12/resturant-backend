@@ -1,0 +1,24 @@
+### Register a Restaurant Owner
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "RestaurantOwner1",
+  "email": "owner1@example.com",
+  "password": "securePassword123",
+  "role": "restaurant"
+}
+
+### Login as a Restaurant Owner
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "owner1@example.com",
+  "password": "securePassword123"
+}
+
+### Get Profile (Requires JWT token)
+# Replace `Bearer YOUR_TOKEN_HERE` with the actual token received from the login response
+GET http://localhost:5000/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTViY2JlM2UyN2VmYWYxOWExOGNiYSIsImlhdCI6MTczMzY3MjEzNCwiZXhwIjoxNzM2MjY0MTM0fQ.Cpa7aCCxl3Z54Dk1UW6zEfnEkAuXAfio3n3thQP7jdk

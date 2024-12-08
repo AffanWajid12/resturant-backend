@@ -1,0 +1,68 @@
+### Create a New User
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "customer",
+  "contactNumber": "+1234567890",
+  "address": {
+    "street": "123 Main St",
+    "city": "Some City",
+    "state": "Some State",
+    "zipCode": "12345",
+    "country": "Some Country"
+  }
+}
+
+###
+
+### Get All Users
+GET http://localhost:5000/api/users
+
+###
+
+### Create a New Restaurant
+POST http://localhost:5000/api/restaurants
+Content-Type: application/json
+
+{
+  "name": "Pizza Place",
+  "owner": "6755bcbe3e27efaf19a18cba", 
+  "description": "Best pizza in town",
+  "cuisine": ["Italian"],
+  "address": {
+    "street": "456 Pizza St",
+    "city": "Pizza City",
+    "state": "Pizza State",
+    "zipCode": "67890",
+    "country": "Pizza Country"
+  },
+  "contactNumber": "+919876543210",
+  "email": "contact@pizzaplace.com",
+  "operatingHours": {
+    "monday": { "open": "10:00", "close": "22:00" },
+    "tuesday": { "open": "10:00", "close": "22:00" },
+    "wednesday": { "open": "10:00", "close": "22:00" },
+    "thursday": { "open": "10:00", "close": "22:00" },
+    "friday": { "open": "10:00", "close": "22:00" },
+    "saturday": { "open": "10:00", "close": "22:00" },
+    "sunday": { "open": "10:00", "close": "22:00" }
+  },
+  "isActive": true,
+  "rating": 4.5,
+  "profilePicture": "profilePicUrl",
+  "coverImage": "coverImageUrl"
+}
+
+###
+
+### Get All Restaurants
+GET http://localhost:5000/api/restaurants
+
+###
+### Test case: Get all restaurants owned by authenticated user (authorized)
+GET http://localhost:5000/api/restaurants/owner-restaurants
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTViY2JlM2UyN2VmYWYxOWExOGNiYSIsImlhdCI6MTczMzY3MjEzNCwiZXhwIjoxNzM2MjY0MTM0fQ.Cpa7aCCxl3Z54Dk1UW6zEfnEkAuXAfio3n3thQP7jdk

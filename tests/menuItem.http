@@ -1,0 +1,29 @@
+### Test case: Fetch all menu items for a restaurant (authorized)
+GET http://localhost:5000/api/6755d22f3a77a4271b9b6ce7/menu-items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTViY2JlM2UyN2VmYWYxOWExOGNiYSIsImlhdCI6MTczMzY4MjAyMywiZXhwIjoxNzM2Mjc0MDIzfQ.9euvTi8Rvj386emS-qIFhNEiAuQ3KhIe21XFD7PsfiM
+
+### Test case: Add a new menu item (authorized)
+POST http://localhost:5000/api/6755d22f3a77a4271b9b6ce7/menu-items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTViY2JlM2UyN2VmYWYxOWExOGNiYSIsImlhdCI6MTczMzY4MjAyMywiZXhwIjoxNzM2Mjc0MDIzfQ.9euvTi8Rvj386emS-qIFhNEiAuQ3KhIe21XFD7PsfiM
+Content-Type: application/json
+
+{
+  "name": "New Menu Item",
+  "price": 10.99,
+  "description": "Delicious new dish",
+  "category": "Main Course"
+}
+
+### Test case: Update an existing menu item (authorized)
+PUT http://localhost:5000/menu-items/:menuItemId
+Authorization: Bearer <VALID_JWT_TOKEN>
+Content-Type: application/json
+
+{
+  "name": "Updated Menu Item",
+  "price": 12.99
+}
+
+### Test case: Delete a menu item (authorized)
+DELETE http://localhost:5000/api/menu-items/:menuItemId
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTViY2JlM2UyN2VmYWYxOWExOGNiYSIsImlhdCI6MTczMzY4MjAyMywiZXhwIjoxNzM2Mjc0MDIzfQ.9euvTi8Rvj386emS-qIFhNEiAuQ3KhIe21XFD7PsfiM

@@ -1,0 +1,38 @@
+### Generate Sales Report
+POST http://localhost:5000/api/sales-report
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTViY2JlM2UyN2VmYWYxOWExOGNiYSIsImlhdCI6MTczMzY4OTY2MywiZXhwIjoxNzM2MjgxNjYzfQ.4sjyWD7FxTn8KRcElUorGPxw8jln7pMc1k212PCH3qs
+Content-Type: application/json
+
+{
+  "restaurantId": "6755951d02e5d56cf1236bbb",
+  "period": "month"
+}
+
+### Fetch Popular Items
+POST http://localhost:5000/api/popular-items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTViY2JlM2UyN2VmYWYxOWExOGNiYSIsImlhdCI6MTczMzY4OTY2MywiZXhwIjoxNzM2MjgxNjYzfQ.4sjyWD7FxTn8KRcElUorGPxw8jln7pMc1k212PCH3qs
+Content-Type: application/json
+
+{
+  "restaurantId": "6755951d02e5d56cf1236bbb"
+}
+
+### Export Data as CSV
+GET http://localhost:5000/api/restaurants/export-data
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "restaurantId": "{{RESTAURANT_ID}}",
+  "format": "csv"
+}
+
+### Export Data as JSON
+GET http://localhost:5000/api/restaurants/export-data
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "restaurantId": "{{RESTAURANT_ID}}",
+  "format": "json"
+}

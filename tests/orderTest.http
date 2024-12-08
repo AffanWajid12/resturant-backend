@@ -1,0 +1,53 @@
+# Base URL (update as per your environment)
+@baseUrl = http://localhost:5000/api/orders
+
+###
+# 1. Get All Orders
+GET {{baseUrl}}
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NTViY2JlM2UyN2VmYWYxOWExOGNiYSIsImlhdCI6MTczMzY3MjEzNCwiZXhwIjoxNzM2MjY0MTM0fQ.Cpa7aCCxl3Z54Dk1UW6zEfnEkAuXAfio3n3thQP7jdk
+###
+# 2. Create a New Order
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "user": "67557657ef9e7950246077f1",
+  "restaurant": "6755d22f3a77a4271b9b6ce7",
+  "items": [
+    {
+      "menuItem": "6487d94eb1c23a3f487c7b9a", 
+      "quantity": 2,
+      "customizations": [
+        {
+          "name": "Extra Cheese",
+          "selectedOptions": ["Cheese"]
+        }
+      ],
+      "itemPrice": 12.5,
+      "itemTotal": 25.0
+    }
+  ],
+  "totalPrice": 30.0,
+  "discount": 5.0,
+  "finalTotal": 25.0,
+  "deliveryAddress": {
+    "street": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "country": "USA"
+  },
+  "paymentMethod": "Credit Card",
+  "paymentStatus": "Paid",
+  "specialInstructions": "Leave at the door."
+}
+
+###
+# 3. Update Order Status
+PATCH {{baseUrl}}/67558bb1c925d313550cfae0/status
+Content-Type: application/json
+
+{
+  "orderStatus": "Delivered" 
+}
