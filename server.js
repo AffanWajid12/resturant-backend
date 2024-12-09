@@ -16,11 +16,9 @@ dotenv.config();
 connectDB();
 
 const app = express();
-
+console.log(process.env.ORIGIN)
 // Middleware
-app.use(cors({
-    origin: process.env.ORIGIN, 
-  }));
+//app.use(cors({origin: process.env.ORIGIN,   }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
